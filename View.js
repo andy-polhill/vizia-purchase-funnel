@@ -73,28 +73,10 @@ View.prototype.render = function render(data) {
       return colours[idx];
     });
 
-  var labels = stageGroups.append('text')
-    .attr('dy', function(d) {
-      return segmentHeight / 2;
-    })
-    .attr('dx', function(d) {
-      var topWidth = mentionScale(d.count);
-      return topWidth / 2;
-    });
-
-  labels.append('tspan')
+  stageGroups.append('foreignObject')
     .attr('class', 'funnel__label')
-    .text(function(d) {
-      return d.title;
-    });
-
-  labels.append('tspan')
-    .attr('dy', 14)
-    .attr('dx', 0)
-    .attr('class', 'funnel__count')
-    .text(function(d) {
-      return '(' + d.count + ')';
+    .html(function(d) {
+      return d.title + '<span class="funnel__count">(' + d.count + ')</span>';
     });
 };
-
 export default View;

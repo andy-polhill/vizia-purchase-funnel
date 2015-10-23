@@ -1,11 +1,13 @@
 .funnel__label {
+  display:block;
+  padding:30px 10px;
+  text-align:center;
   font-family:sans-serif;
   fill:#4b4949;
   font-size: 12px;
 }
 
 .funnel__count {
-  font-family:sans-serif;
-  fill:#4b4949;
+  display:block;
   font-size: 10px;
 }
