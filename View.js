@@ -1,14 +1,14 @@
-function View2() {
+function View() {
   this.el = document.createElement('div');
   this.el.id = 'funnel2';
 }
 
-View2.prototype.render = function render(data) {
+View.prototype.render = function render(data) {
   document.getElementById('main').appendChild(this.el);
 
   var colours = [
-  '#950040','#FAC5B8','#CAE8EA','#69BF2F',
-  '#F4E8AE','#D6538C','#948671','#DEE1CF',
+  '#F4E8AE','#FAC5B8','#CAE8EA','#69BF2F',
+  '#950040','#D6538C','#948671','#DEE1CF',
   ];
 
   var data = [{
@@ -73,11 +73,28 @@ View2.prototype.render = function render(data) {
       return colours[idx];
     });
 
-  stageGroups.append('text')
+  var labels = stageGroups.append('text')
+    .attr('dy', function(d) {
+      return segmentHeight / 2;
+    })
+    .attr('dx', function(d) {
+      var topWidth = mentionScale(d.count);
+      return topWidth / 2;
+    });
+
+  labels.append('tspan')
+    .attr('class', 'funnel__label')
     .text(function(d) {
       return d.title;
     });
 
+  labels.append('tspan')
+    .attr('dy', 14)
+    .attr('dx', 0)
+    .attr('class', 'funnel__count')
+    .text(function(d) {
+      return '(' + d.count + ')';
+    });
 };
 
-//export default View;
+export default View;

@@ -1,0 +1,11 @@
+.funnel__label {
+  font-family:sans-serif;
+  fill:#4b4949;
+  font-size: 12px;
+}
+
+.funnel__count {
+  font-family:sans-serif;
+  fill:#4b4949;
+  font-size: 10px;
+}
