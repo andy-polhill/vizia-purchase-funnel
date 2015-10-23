@@ -1,0 +1,11 @@
+{
+  "name": "vizia-funnel",
+  "version": "0.0.0",
+  "description": "A vizia funnel visualisation",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "",
+  "license": "ISC"
+}
